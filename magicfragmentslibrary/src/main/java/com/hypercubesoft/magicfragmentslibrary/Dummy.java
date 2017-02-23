@@ -35,7 +35,7 @@ public class Dummy {
             fibonacciArray.add(0);
             fibonacciArray.add(1);
             for (int i = 2; i < value; i++) {
-                fibonacciArray.set(i, (fibonacciArray.get(i - 1) + fibonacciArray.get(i - 2)));
+                fibonacciArray.add(i, (fibonacciArray.get(i - 1) + fibonacciArray.get(i - 2)));
             }
             return fibonacciArray;
         }
