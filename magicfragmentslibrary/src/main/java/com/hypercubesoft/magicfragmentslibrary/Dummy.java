@@ -17,27 +17,25 @@ public class Dummy {
     private ArrayList<Integer> fibonacciArray;
 
     public   Dummy() {
-        fibonacciArray = new ArrayList<>();
+
 
     }
 
-    public ArrayList<Integer> fibonacci(int value) {
-        if (value == 0) {
-            return fibonacciArray;
-        } else if (value == 1) {
-            fibonacciArray.add(0);
-            return fibonacciArray;
-        } else if (value == 2) {
-            fibonacciArray.add(0);
-            fibonacciArray.add(1);
-            return fibonacciArray;
-        } else {
-            fibonacciArray.add(0);
-            fibonacciArray.add(1);
-            for (int i = 2; i < value; i++) {
-                fibonacciArray.add(i, (fibonacciArray.get(i - 1) + fibonacciArray.get(i - 2)));
-            }
-            return fibonacciArray;
+    public int[] fibonacci(int value) {
+        int[] fibNumbers = new int[] {0, 1};
+        // Set your condition of how many numbers you want to create, 20 in my case.
+        // This is also limited to the max value of an integer
+        while (fibNumbers.length < value) {
+            // Create a new array for the next number in the sequence
+            int[] newFibNumbers = new int[fibNumbers.length + 1];
+            // Copy the cotents from your original array to this new array
+            System.arraycopy(fibNumbers, 0, newFibNumbers, 0, fibNumbers.length);
+            // Calculate the last element which is equal to the sum of the previous two elements
+            newFibNumbers[newFibNumbers.length - 1] = newFibNumbers[newFibNumbers.length - 2] + newFibNumbers[newFibNumbers.length - 3];
+                      fibNumbers = newFibNumbers;
         }
+return fibNumbers;
     }
+
+
 }
